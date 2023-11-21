@@ -2,13 +2,15 @@ from pytest import approx
 from math import sqrt
 from r2point import R2Point
 from convex import Figure, Void, Point, Segment, Polygon
+from convex2 import tri
+A = tri(R2Point(0.0, 0.0), R2Point(1.0, 0.0), R2Point(1.0, 1.0))
 
 
 class TestVoid:
 
     # Инициализация (выполняется для каждого из тестов класса)
     def setup_method(self):
-        self.f = Void()
+        self.f = Void(A)
 
     # Нульугольник является фигурой
     def test_figure(self):
@@ -35,7 +37,7 @@ class TestPoint:
 
     # Инициализация (выполняется для каждого из тестов класса)
     def setup_method(self):
-        self.f = Point(R2Point(0.0, 0.0))
+        self.f = Point(R2Point(0.0, 0.0), A)
 
     # Одноугольник является фигурой
     def test_figure(self):
@@ -66,7 +68,7 @@ class TestSegment:
 
     # Инициализация (выполняется для каждого из тестов класса)
     def setup_method(self):
-        self.f = Segment(R2Point(0.0, 0.0), R2Point(1.0, 0.0))
+        self.f = Segment(R2Point(0.0, 0.0), R2Point(1.0, 0.0), A)
 
     # Двуугольник является фигурой
     def test_figure(self):
@@ -105,7 +107,7 @@ class TestPolygon:
             R2Point(
                 0.0, 0.0), R2Point(
                 1.0, 0.0), R2Point(
-                0.0, 1.0))
+                0.0, 1.0), A)
 
     # Многоугольник является фигурой
     def test_figure(self):
@@ -162,6 +164,6 @@ class TestPolygon:
 
     def test_area2(self):
         assert self.f.add(R2Point(1.0, 1.0)).area() == approx(1.0)
-        
+
     def test001(self):
-        assert self.f.add(R2Point(1.0, 1.0)).area() == approx(1.0)    
+        assert self.f.add(R2Point(1.0, 1.0)).area() == approx(1.0)

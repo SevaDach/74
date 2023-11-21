@@ -22,6 +22,7 @@ def polygon_draw(self, tk):
         tk.draw_line(self.points.last(), self.points.first())
         self.points.push_last(self.points.pop_first())
 
+
 setattr(Void, 'draw', void_draw)
 setattr(Point, 'draw', point_draw)
 setattr(Segment, 'draw', segment_draw)
@@ -35,7 +36,7 @@ try:
     q = R2Point()
     r = R2Point()
     A = tri(p, q, r)
-    tk.draw_line(p,q)
+    tk.draw_line(p, q)
     f = Void(A)
     s = Void(A)
     tk.clean()
