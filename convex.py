@@ -12,7 +12,7 @@ class Figure:
     def area(self):
         return 0.0
 
-    def otvet(self, treug):
+    def otvet(self):
         return 0
 
 
@@ -25,9 +25,6 @@ class Void(Figure):
     def add(self, p):
         return Point(p, self.treug)
 
-    def otvet(self):
-        return 0
-
 
 class Point(Figure):
     """ "Одноугольник" """
@@ -38,9 +35,6 @@ class Point(Figure):
 
     def add(self, q):
         return self if self.p == q else Segment(self.p, q, self.treug)
-
-    def otvet(self):
-        return 0
 
 
 class Segment(Figure):

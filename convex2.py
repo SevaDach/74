@@ -6,9 +6,6 @@ class tri:
     def __init__(self, a, b, c):
         self.spisok = [a, b, c]
 
-    def add(self, point):
-        self.spisok.append(point)
-
     def pprint(self):
         for i in range(len(self.spisok)):
             print(self.spisok[i].x, self.spisok[i].y)

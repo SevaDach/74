@@ -112,3 +112,34 @@ def test_010():  # базовая проверка работы программ
     assert f.area() > 0.095 and f.area() < 0.096 and\
            f.perimeter() > 2.4 and\
            f.perimeter() < 2.5 and f.otvet() == 0
+
+
+def test_011():  # базовая проверка работы программы
+    A = tri(R2Point(0.0, 0.0), R2Point(1.0, 0.0), R2Point(1.0, 1.0))
+    f = Void(A)
+    f = f.add(R2Point(3, 3))
+    f = f.add(R2Point(4, 3))
+    assert f.area() == 0 and f.perimeter() < 2.1 and\
+           f.perimeter() > 1.9 and f.otvet() == 0
+
+
+def test_012():  # базовая проверка работы программы
+    A = tri(R2Point(0.0, 0.0), R2Point(1.0, 0.0), R2Point(1.0, 1.0))
+    f = Void(A)
+    f = f.add(R2Point(3, 3))
+    f = f.add(R2Point(4, 3))
+    f = f.add(R2Point(5, 3))
+    f = f.add(R2Point(2, 3))
+    assert f.area() == 0 and f.perimeter() < 6.1 and\
+           f.perimeter() > 5.9 and f.otvet() == 0
+
+
+def test_013():  # базовая проверка работы программы
+    A = tri(R2Point(0.0, 0.0), R2Point(1.0, 0.0), R2Point(1.0, 1.0))
+    f = Void(A)
+    f = f.add(R2Point(0.9, 0.7))
+    f = f.add(R2Point(0.9, 0.6))
+    f = f.add(R2Point(0.8, 0.6))
+    f = f.add(R2Point(0.5, 0.6))
+    assert f.area() > 0.01 and f.area() < 0.02 and\
+           0.9 < f.perimeter() < 0.92 and f.otvet() == 1
